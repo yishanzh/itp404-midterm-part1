@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Restaurant List</title>
+  </head>
+  <body>
+
+    <h2>Restaurant List</h2>
+
+
+
+
+    <div id="results">
+
+<!--  handlebars template here-->
+      <template id="template">
+        {{#each RestaurantResults}}
+        <div class="search-results">
+          <h3>{{this.attributes.name}}</h3>
+          <p>city: {{this.attributes.city}}</p>
+
+          <p>
+            Owner(s):
+              {{#each this.attributes.owners}}
+              <ul>
+                <li>{{this.name}}</li>
+              </ul>
+              {{/each}}
+          </p>
+
+          <p><a href="{{this.yelp}}">Check us out on Yelp</a> </p>
+
+
+          {{#if this.attributes.caters}}
+          <p>Caters</p>
+          {{else}}
+          <p>Do not cater</p>
+          {{/if}}
+
+          <p><a href="https://www.instagram.com/{{{link instagram}}}">Instagram </a></p>
+        </div>
+        {{/each}}
+      </template>
+
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="moment.js"></script>
+    <!-- moment.js is used to format dates-->
+    <script src="handlebars-v4.0.11.js"></script>
+
+    <script src="main.js"></script>
+
+
+  </body>
+</html>
